@@ -1,7 +1,7 @@
 # house_price_prediction
 Project (2025.09.01 ~ 2025.09.12)
 
-₩₩₩
+'''
 house-price-prediction/
 │── data/
 │   └── sample.csv             # 작은 예시 데이터만
@@ -24,4 +24,4 @@ house-price-prediction/
 │── requirements.txt
 │── README.md
 │── .gitignore
-₩₩₩
+'''
