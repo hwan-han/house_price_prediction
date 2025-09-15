@@ -1,0 +1,56 @@
+# ========================
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+*.env
+
+# ========================
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ========================
+# Data files
+# 큰 데이터셋은 무시
+data/*.csv
+!data/sample.csv
+!data/test.csv
+
+# Excel/Parquet 등 무거운 파일도 무시
+*.xlsx
+*.xls
+*.parquet
+*.feather
+
+# ========================
+# Model & Results
+*.pkl
+*.joblib
+*.npy
+*.npz
+*.h5
+
+results/
+submissions/
+figures/
+
+# ========================
+# Logs & Caches
+*.log
+*.out
+*.tmp
+*.bak
+*.swp
+
+# ========================
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
