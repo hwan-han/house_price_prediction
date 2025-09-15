@@ -9,6 +9,7 @@
 ```
 ## 📂 프로젝트 구조  
 house-price-prediction/
+│── .gitignore
 │── data/
 │ ├── train.csv, test.csv # 용량 문제로 test.csv만 존재
 │ ├── bank.csv # 연도별 수치
