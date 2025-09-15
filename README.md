@@ -42,8 +42,8 @@ house-price-prediction/
   - `train.csv`, `test.csv`: 아파트 거래 내역과 매매가  
 
 - **외부 데이터**  
-  - 한국은행 지표: 기준금리, 국고채(3년), 정부대출금리 등  
-  - 지하철 정보: 반경 내 지하철 개수, 거리  
+  - 한국은행 지표: 한국은행기준금리, 국고채(3년), 정부대출금리, 서울지가변동률   
+  - 지하철 정보: 1km 반경 내 지하철 개수, 거리  
 
 - **파생변수 생성**  
   - `top_5_pct`: target 값 기준 상위 5% 여부  
@@ -62,12 +62,15 @@ house-price-prediction/
   - `TimeSeriesSplit(n_splits=5)`  
 
 - **모델**  
-  - **LightGBM**: GPU 활용, 파생변수 포함  
-  - **RandomForest**: 가중치 실험 (고가 아파트 중요도 반영)  
-  - **LSTM (실험)**: 시계열 특성 반영  
+  - **LightGBM**: GPU 활용, 파생변수  
+  - **RandomForest**: 가중치 실험 (고가 아파트 중요도 반영)
+  - **XGBoost**: GPU 활용, 파생변수
+  - **LSTM (실험)**: 시계열 특성 반영
+  - **TimeSeries CrossValidation**: 교차검증  
 
 - **평가지표**  
   - RMSE (Root Mean Squared Error)  
+<img width="412" height="140" alt="image" src="https://github.com/user-attachments/assets/152c2735-fe2a-448f-9209-fbfbf5d04c7f" />
 
 ---
 
