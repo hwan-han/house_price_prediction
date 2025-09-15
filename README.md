@@ -13,7 +13,7 @@ house-price-prediction/
 │ ├── train.csv, test.csv # 용량 문제로 test.csv만 존재
 │ ├── bank.csv # 연도별 수치
 │ ├── subway_feature.csv # 지하철 데이터
-│ └── merged.csv # 전처리된 데이터
+│ └── merged.csv # 전처리된 데이터(용량문제)
 │
 │── notebooks/
 │ ├── 01_EDA.ipynb # 탐색적 데이터 분석
