@@ -43,8 +43,8 @@ house-price-prediction/
   - 지하철 정보: 1km 반경 내 지하철 개수, 거리  
 
 - **파생변수 생성**  
-  - `top_5_pct`: target 값 기준 상위 5% 여부  
-  - `luxury_apt`: 연평균 20억 이상 아파트 여부  
+  - `top_5_pct`: target 값 기준 상위 5% 여부 - target값을 이용하는 도중 문제 발견 
+  - `luxury_apt`: 연평균 20억 이상 아파트 여부 - target값을 이용하는 도중 문제 발견
   - `계약계절`, `이사철여부` 등 시계열 변수
   - `전용면적`: 4분위로 구간을 나눈 후 구간별 평균값 학습
   - `금리`: 당해 년도가 아닌 2년 후 값에 적용
@@ -55,7 +55,8 @@ house-price-prediction/
 ## ⚙️ 모델링 과정  
 
 - **전처리**  
-  - 결측치 처리, 이상치 제거 (단, 고가 아파트는 유지)  
+  - 카카오API를 이용한 위치 정보 정확히 맵핑 + 외부데이터 결측치 없이 추출 + 결측치가 많은 컬럼과 행 제거
+  - 데이터 구조상 이상치 처리 과정 불필요
   - 카테고리 인코딩 (Label Encoding, category 타입 변환)  
 
 - **교차검증**  
@@ -74,40 +75,22 @@ house-price-prediction/
 
 ## 📈 성능 비교  
 
-| 모델               | RMSE (검증) | 특징 |
+| 모델                | RMSE (검증)  | 특징 |
 |--------------------|-------------|------|
-| Baseline (평균값)    | 48,385      | 단순 평균 예측 |
-| RandomForest       | 17,328      | 외부데이터 + 파생변수 |
-| LightGBM           | 15,159      | 외부데이터 + 파생변수 |
-| XGBoost            | 14,660      | 외부데이터 + 파생변수 |
+| Baseline (평균값)    | 48,385      | 베이스라인 코드 rmse |
+| RandomForest       | 17,328      | 외부데이터 + 파생변수 + 하이퍼파라미터 최적화 |
+| LightGBM           | 15,159      | 외부데이터 + 파생변수 + 하이퍼파라미터 최적화 |
+| XGBoost            | 14,660      | 외부데이터 + 파생변수 + 하이퍼파라미터 최적화 |
 
 ---
 
 ## 📉 시각화  
 
-- 금리와 집값의 음의 상관관계  
+- 금리와 집값의 상관관계  
 - 지하철 개수/거리와 평균 집값 관계  
-- 고가 아파트 분포  
+- 전용면적과 집값 관계
+- 변수 중요도  
 
-(→ `results/figures/`에 그래프 저장)  
+(→ `outputs/figures/`에 그래프 저장)  
 
 ---
-
-## 🚀 실행 방법  
-
-```bash
-# 1. 라이브러리 설치
-pip install -r requirements.txt
-
-# 2. 전처리
-python src/preprocess.py
-
-# 3. 파생변수 생성
-python src/feature_engineering.py
-
-# 4. 학습 (LightGBM)
-python src/train.py --model lgbm
-
-# 5. 학습 (RandomForest)
-python src/train.py --model rf
-
