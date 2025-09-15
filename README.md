@@ -22,7 +22,6 @@ house-price-prediction/
 │
 │── src/
 │ ├── requirements.txt 
-│ ├── feature_engineering.py # 파생변수 생성 코드
 │ └── utils.py # 필수 라이브러리
 │
 │── outputs/
