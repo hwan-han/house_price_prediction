@@ -15,10 +15,10 @@ house-price-prediction/
 │ ├── subway_feature.csv # 지하철 데이터
 │ └── merged.csv # 전처리된 데이터(용량문제)
 │
-│── notebooks/
-│ ├── 01_EDA.ipynb # 탐색적 데이터 분석
-│ ├── 02_Feature_Engineering.ipynb # 파생변수 생성
-│ └── 03_Modeling_LGBM.ipynb # LightGBM 학습 실험
+│── codes/
+│ ├── ML_Advanced.ipynb # 베이스라인 코드
+│ ├── ML_BANK.ipynb # 은행데이터 추가 코드
+│ └── ML_subway.ipynb # 지하철 데이터 추가 코드
 │
 │── src/
 │ ├── preprocess.py # 데이터 전처리 코드
