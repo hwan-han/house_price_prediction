@@ -132,5 +132,5 @@ house-price-prediction/
 - Language: Python (Pandas, NumPy)  
 - Visualization: Matplotlib, Seaborn  
 - Machine Learning: Scikit-learn, LightGBM, XGBoost, RandomForest  
-- Tools: Jupyter Notebook, GitHub, Kakao API
+- Tools: VSCode, Jupyter Notebook, GitHub, Kakao API
   
