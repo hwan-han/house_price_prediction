@@ -10,7 +10,10 @@
 ## 📂 프로젝트 구조  
 house-price-prediction/
 │── data/
-│ └── sample.csv # 작은 예시 데이터만
+│ ├── train.csv, test.csv # 용량 문제로 test.csv만 존재
+│ ├── bank.csv # 연도별 수치
+│ ├── subway_feature.csv # 지하철 데이터
+│ └── merged.csv # 전처리된 데이터
 │
 │── notebooks/
 │ ├── 01_EDA.ipynb # 탐색적 데이터 분석
@@ -48,7 +51,10 @@ house-price-prediction/
 - **파생변수 생성**  
   - `top_5_pct`: target 값 기준 상위 5% 여부  
   - `luxury_apt`: 연평균 20억 이상 아파트 여부  
-  - `계약계절`, `이사철여부` 등 시계열 변수  
+  - `계약계절`, `이사철여부` 등 시계열 변수
+  - `전용면적`: 4분위로 구간을 나눈 후 구간별 평균값 학습
+  - `금리`: 당해 년도가 아닌 2년 후 값에 적용
+  - `지하철역`: 역과의 거리에 따라 가중치 부과 
 
 ---
 
@@ -59,14 +65,12 @@ house-price-prediction/
   - 카테고리 인코딩 (Label Encoding, category 타입 변환)  
 
 - **교차검증**  
-  - `TimeSeriesSplit(n_splits=5)`  
+  - `TimeSeriesSplit(n_splits=5) CrossValidation`  
 
 - **모델**  
   - **LightGBM**: GPU 활용, 파생변수  
   - **RandomForest**: 가중치 실험 (고가 아파트 중요도 반영)
   - **XGBoost**: GPU 활용, 파생변수
-  - **LSTM (실험)**: 시계열 특성 반영
-  - **TimeSeries CrossValidation**: 교차검증  
 
 - **평가지표**  
   - RMSE (Root Mean Squared Error)  
@@ -78,10 +82,10 @@ house-price-prediction/
 
 | 모델               | RMSE (검증) | 특징 |
 |--------------------|-------------|------|
-| Baseline (평균값) | 40,000      | 단순 평균 예측 |
-| RandomForest       | 20,000      | 기본 피처 사용 |
-| LightGBM           | 18,000      | 외부데이터 + 파생변수 |
-| LSTM (실험)        | 19,500      | 시계열 특성 반영 |
+| Baseline (평균값)    | 48,385      | 단순 평균 예측 |
+| RandomForest       | 17,328      | 외부데이터 + 파생변수 |
+| LightGBM           | 15,159      | 외부데이터 + 파생변수 |
+| XGBoost            | 14,660      | 외부데이터 + 파생변수 |
 
 ---
 
