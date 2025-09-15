@@ -21,18 +21,13 @@ house-price-prediction/
 │ └── ML_subway.ipynb # 지하철 데이터 추가 코드
 │
 │── src/
-│ ├── preprocess.py # 데이터 전처리 코드
+│ ├── requirements.txt 
 │ ├── feature_engineering.py # 파생변수 생성 코드
-│ ├── train.py # 학습 실행 (LightGBM, RF)
-│ └── utils.py # 공통 함수
+│ └── utils.py # 필수 라이브러리
 │
 │── outputs/
 │ ├── figures/ # 시각화 이미지
-│ └── submissions/ # 제출 파일 (샘플만)
-│
-│── requirements.txt # 필요 라이브러리
-│── README.md # 프로젝트 설명
-│── .gitignore # 버전관리 제외 규칙
+│ └── submissions/ # 제출 파일
 ```
 
 
