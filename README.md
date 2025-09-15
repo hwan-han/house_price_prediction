@@ -26,7 +26,7 @@ house-price-prediction/
 │ ├── train.py # 학습 실행 (LightGBM, RF)
 │ └── utils.py # 공통 함수
 │
-│── results/
+│── outputs/
 │ ├── figures/ # 시각화 이미지
 │ └── submissions/ # 제출 파일 (샘플만)
 │
