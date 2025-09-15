@@ -5,6 +5,8 @@
 - **목표**: 주어진 학습 데이터와 외부 데이터를 활용해 **RMSE 최소화**  
 - **기간**: 2025년 9월 1일 ~ 9월 12일  
 
+## 역할 
+기존 데이터와 은행데이터 추출 및 전처리, 모델링, 시각화, 검증 및 수정
 ---
 ```
 ## 📂 프로젝트 구조  
@@ -95,3 +97,11 @@ house-price-prediction/
 (→ `outputs/figures/`에 그래프 저장)  
 
 ---
+
+**Tech Stack**  
+- Language: Python (Pandas, NumPy)  
+- Visualization: Matplotlib, Seaborn  
+- Machine Learning: Scikit-learn, LightGBM, XGBoost, RandomForest  
+- Tools: Jupyter Notebook, GitHub, Kakao API
+
+  
